@@ -30,7 +30,8 @@ void show()
 
   void st()
   {
-    int i,j,t;
+    int i,j,t,k;
+    k=0;
     for(i=0;i<n;i++)
     {
       for(j=0;j<n-i-1;j++)
@@ -40,14 +41,17 @@ void show()
         t=a[j];
         a[j]=a[j+1];
         a[j+1]=t;
+        k++;
         }
       }
     }
+    cout<<"Counter::"<<k<<endl;
   }
 
   void insertion()
   {
-    int i,j,t;
+    int i,j,t,k;
+    k=0;
     for(i=1;i<n;i++)
     {
       t=a[i];
@@ -56,29 +60,41 @@ void show()
       {
         a[j+1]=a[j];
         j=j-1;
+        k++;
+        
       }
       a[j+1]=t;
 
     }
+    cout<<"Counter value::"<<k<<endl;
   }
 
   void selection()
   {
-    int i,j,min,t;
+    int i,j,min,t,k;
+    k=0;
     for(i=0;i<n-1;i++)
     {    min=i;
-      for(j-i+1;j<n;j++)
+      for(j=i+1;j<n;j++)
       {
         if(a[min]>a[j])
         {
           min=j;
+     
         }
-        t=a[min];
+                 t=a[min];
         a[min]=a[i];
         a[i]=t;
+        k++;
+        
+        
+    
+        
 
       }
     }
+    cout<<"Counter value::"<<k<<endl;
+    
   }
 
 };
@@ -97,6 +113,7 @@ int main()
     cout<<"INSERTION SORT"<<endl;
     obj.show();
     cout<<"SELECTION SORT"<<endl;
+    obj.selection();
     obj.show();
 
     sample <char> obj1;
