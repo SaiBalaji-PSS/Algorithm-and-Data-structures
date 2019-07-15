@@ -28,29 +28,10 @@ void show()
   }
 
 
-  void st()
-  {
-    int i,j,t,k;
-    k=0;
-    for(i=0;i<n;i++)
-    {
-      for(j=0;j<n-i-1;j++)
-      {
-        if(a[j]>a[j+1])
-        {
-        t=a[j];
-        a[j]=a[j+1];
-        a[j+1]=t;
-        k++;
-        }
-      }
-    }
-    cout<<"Counter::"<<k<<endl;
-  }
-
   void insertion()
   {
-    int i,j,t,k;
+    int i,j,k;
+    T t;
     k=0;
     for(i=1;i<n;i++)
     {
@@ -71,7 +52,8 @@ void show()
 
   void selection()
   {
-    int i,j,min,t,k;
+    int i,j,min,k;
+    T t;
     k=0;
     for(i=0;i<n-1;i++)
     {    min=i;
@@ -101,41 +83,40 @@ void show()
 int main()
 {   cout<<"INTEGER SORT"<<endl;
     sample <int> obj;
-
-    cout<<"INT SORT"<<endl;
+   
+   
     obj.get();
     cout<<"Entered elements are"<<endl;
     obj.show();
-    cout<<"BUBBLE SORT"<<endl;
-    obj.st();
-    obj.show();
-    obj.insertion();
+    
+    cout<<"Enter the choice 1.Selection\n2.Insertion\n";
+    int ch;
+    
+    cin>>ch;
+    switch(ch)
+    {
+    	case 1:
+    	{
     cout<<"INSERTION SORT"<<endl;
+    obj.insertion();
     obj.show();
+    break;
+    	}
+    	
+    	
+    	case 2:
+    	{
+    
     cout<<"SELECTION SORT"<<endl;
     obj.selection();
     obj.show();
-
-    sample <char> obj1;
-
-    cout<<"CHAR SORT"<<endl;
-    obj1.get();
-    cout<<"Entered elements are"<<endl;
-    obj1.show();
-    cout<<"BUBBLE SORT"<<endl;
-    obj1.st();
-    obj1.show();
-    obj1.insertion();
-    cout<<"INSERTION SORT"<<endl;
-    obj1.show();
-    cout<<"SELECTION SORT"<<endl;
-    obj1.show();
-
-
-
-
-
-
+    	}
+    	
+    	default:
+    	{
+    		cout<<"Invalid choice\n";
+    	}
+    }
 
     return 0;
 }
