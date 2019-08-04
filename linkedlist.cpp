@@ -21,6 +21,8 @@ class list
     	void insertbeg();
     	void insertend();
     	void insertpos();
+    	void delbeg();
+    	void delend();
     	
     	void display();
     
@@ -108,16 +110,55 @@ void list::insertpos()
       
     }
 }
+void list::delbeg()
+{    struct node * temp;
+	temp = new node;
+	if(head==NULL)
+	{
+		cout<<"LIST EMPTY"<<endl;
+		return;
+	}
+	temp=head;
+	cout<<temp->value<<"IS DELETED"<<endl;
+	head=head->next;
+	delete temp;
+	n--;
+	
+}
+void list::delend()
+{
+	struct node *c,*p;
+	if(head==NULL)
+	{
+		cout<<"EMPTY LIST";
+		return ;
+	}
+	for(p=head,c=head;c->next!=NULL;p=c,c=c->next);
+	cout<<c->value<<""<<"IS DELETED"<<endl;
+	
+	if(p==c)
+	{
+		head=NULL;
+		delete p,c;
+	}
+	delete c;
+	delete p;
+	
+}
 
 int main()
 {
 	list obj;
+	
+	obj.insertbeg();
 	obj.insertbeg();
 	
 	obj.insertend();
 	obj.insertpos();
+	obj.delbeg();
+	//obj.delend(); GETTING SOME HERE WHEN DISPLAY IS CALLED AFTER THE FUNCTION IS EXCECUTED
 	obj.display();
+	
 	return 0;
 	
 }
-
