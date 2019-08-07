@@ -81,9 +81,10 @@ void list::insertpos()
 		cout<<"INVALID POSITION"<<endl;
 		return;
 	}
-	if(pos==1)
+	if(pos==0)
 	{
 		insertbeg();
+		return;
 	}
 	if(pos>n+1)
 	{
@@ -136,6 +137,8 @@ void list::delend()
 	}
 	for(p=head,c=head;c->next!=NULL;p=c,c=c->next);
 	cout<<c->value<<""<<"IS DELETED"<<endl;
+	delete c;
+	n--;
 	
 	
 	if(p==c)
@@ -143,8 +146,7 @@ void list::delend()
 		head=NULL;
 		delete p,c;
 	}
-	delete c;
-
+	
 	
 }
 void list:: delpos()
@@ -166,33 +168,76 @@ void list:: delpos()
 	if(pos==1)
 	{
 		delbeg();
+		return;
 	}
 	if(pos==n)
 	{
 		delend();
+		return;
 	}
 	int i;
 	for(i=1,p=head,c=head;i!=pos;i++,p=c,c=c->next);
 	cout<<c->value<<"IS DELETED"<<endl;
 	p->next=c->next;
+	n--;
 	delete c;
 }
 
 int main()
 {
 	list obj;
-	
+	int ch;
+	int c;
+	do
+{
+	cout<<"Enter 1.Insert beg"<<"\n"<<"2.Insert pos"<<"\n"<<"3.Insert end"<<"\n"<<" 4.Del beg"<<"\n"<<" 5.Del end"<<"\n"<<" 6.Del pos"<<"\n"<<"7.Display"<<endl;
+	cin>>ch;
+	switch(ch)
+{
+	case 1:
+	{
 	obj.insertbeg();
-	obj.insertbeg();
-	obj.insertbeg();
-	obj.insertbeg();
-	
-	
-	obj.insertend();
-	obj.insertpos();
-	//obj.delbeg();
-	//obj.delend();
+	break;
+	}
+	case 2:
+	{
+		obj.insertpos();
+		break;
+	}
+	case 3:
+	{
+		obj.insertend();
+		break;
+	}
+	case 4:
+	{
+     obj.delbeg();
+     break;
+	}
+	case 5:
+	{
+	obj.delend();
+	break;
+	}
+	case 6:
+	{
 	obj.delpos();
+	break;
+	}
+	case 7:
+	{
+	obj.display();
+	break;
+	}
+	default:
+	{
+		cout<<"Invalid choice"<<endl;
+	}
+}
+cout<<"Enter 1 to continue"<<endl;
+cin>>c;
+}while(c==1);
+	
 	
 	return 0;
 	
