@@ -97,7 +97,7 @@ void list::insertpos()
 	cin>>temp->value;
 	temp->next=NULL;
 	int i;
-	for( i=1,c=head;i<pos-1;c=c->next);
+	for( i=1,c=head;i<pos-1;c=c->next,i++);
 	temp->next=c->next;
 	c->next=temp;
 }
