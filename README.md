@@ -1,2 +1,2 @@
-# Alogorithm
+# Algorithm
 Algorithm using C++ and C#
