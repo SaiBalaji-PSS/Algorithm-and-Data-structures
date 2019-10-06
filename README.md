@@ -1,2 +1,2 @@
-# Algorithm
-Algorithm using C++ and C#
+# Algorithm and Data Structures
+Algorithm and Data Structures using C++ 
