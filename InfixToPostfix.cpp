@@ -73,18 +73,18 @@ public:
       { char t=ip[i];
 
         this->push(t);
-        cout<<"PUSHED::"<<ip[i]<<endl;
+        //cout<<"PUSHED::"<<ip[i]<<endl;
       }
 
       else if(ip[i]=='+'||ip[i]=='-'||ip[i]=='*'||ip[i]=='/')
-      {  cout<<"sdf"<<ip[i];
+      {  //cout<<"sdf"<<ip[i];
          while(this->peek()=='+'||this->peek()=='-'||this->peek()=='*'||this->peek()=='/')
-         {cout<<"sdf2";
+         {//cout<<"sdf2";
            if(preced(ip[i])<preced(this->peek())||preced(ip[i])==preced(this->peek()))
            {  cout<<this->peek();
 
              op[j]=this->pop();
-            cout<<"recived"<<op[i]<<endl;
+            //cout<<"recived"<<op[i]<<endl;
             j++;
 
            }
@@ -94,16 +94,16 @@ public:
            }
          }
          this->push(ip[i]);
-         cout<<"pushed"<<ip[i]<<endl;
+         //cout<<"pushed"<<ip[i]<<endl;
       }
 
       else if(ip[i]==')')
-      { cout<<"GOT"<<ip[i]<<endl;
+      { //cout<<"GOT"<<ip[i]<<endl;
         while(this->peek()!='(')
         {
           op[j]=this->pop();
 
-          cout<<"RECIVED"<<op[j]<<endl;
+          //cout<<"RECIVED"<<op[j]<<endl;
           j++;
           //n--;
 
@@ -116,9 +116,9 @@ public:
         }
       }
       else if(ip[i]>='a'||ip[i]<='z')
-      {    cout<<"recived00"<<ip[i]<<endl;
+      {    //cout<<"recived00"<<ip[i]<<endl;
         op[j]=ip[i];
-          cout<<"recived"<<op[j]<<endl;
+        //  cout<<"recived"<<op[j]<<endl;
           j++;
       }
 
